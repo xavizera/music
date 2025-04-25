@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Artist extends Model
+class Song extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -14,10 +14,12 @@ class Artist extends Model
      */
     protected $fillable = [
         'name',
+        'filename',
+        'artist_id',
     ];
 
-    public function songs(): HasMany
+    public function artist(): BelongsTo
     {
-        return $this->hasMany(Song::class);
+        return $this->belongsTo(Artist::class);
     }
 }
