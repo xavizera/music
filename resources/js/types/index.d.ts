@@ -41,3 +41,9 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Song {
+    id: number;
+    name: string;
+    artist?: string;
+}

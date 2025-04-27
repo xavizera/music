@@ -10,7 +10,7 @@ class SongController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('song/index', [
+        return Inertia::render('songs/index', [
             'songs' => Song::all(),
         ]);
     }
