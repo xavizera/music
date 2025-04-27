@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -12,9 +13,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
-    Route::get('songs', function () {
-        return Inertia::render('songs/index');
-    })->name('songs.index');
+    Route::resource('songs', SongController::class);
 });
 
 require __DIR__.'/settings.php';
