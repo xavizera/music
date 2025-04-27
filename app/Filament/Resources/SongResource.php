@@ -6,6 +6,7 @@ use App\Filament\Resources\SongResource\Pages;
 use App\Filament\Resources\SongResource\RelationManagers;
 use App\Models\Song;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,9 +27,8 @@ class SongResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('filename')
-                    ->required()
-                    ->maxLength(255),
+                FileUpload::make('filename')
+                    ->acceptedFileTypes(['audio/mpeg', 'audio/mp3']),
                 Forms\Components\Select::make('artist_id')
                     ->relationship('artist', 'name')
                     ->required(),
